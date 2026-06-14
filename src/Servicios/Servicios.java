@@ -4,9 +4,13 @@ import Clases.Camion;
 import Clases.Paquete;
 import Reader.CSVReader;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
 
 public class Servicios {
+
     //Completar con las estructuras y métodos privados que se requieran.
     private List<Paquete> paquetes;
     private List<Camion> camiones;
@@ -22,12 +26,16 @@ public class Servicios {
     public Servicios(String pathCamiones, String pathPaquetes) {
         this.camiones = CSVReader.cargarCamiones(pathCamiones);
         this.paquetes = CSVReader.cargarPaquetes(pathPaquetes);
-
+        this.paquetesXcodigo = new Hashtable<>();
+        this.paquetesConAlimentos = new ArrayList<>();
+        this.paquetesSinAlimentos = new ArrayList<>();
+        this.paquetesXUrgencia = new Hashtable<>();
         /*
-        * no me queda claro si está bien que el constructor tenga todo esto,
-        * pero no se estarían generando todas las estructuras al instanciar el servicio.
-        */
+         * no me queda claro si está bien que el constructor tenga todo esto,
+         * pero no se estarían generando todas las estructuras al instanciar el servicio.
+         */
         for (Paquete p : paquetes) {
+
             this.paquetesXcodigo.put(p.getCodIdentificador(),p); //SERVICIO 1
 
             if(p.getContieneAlimentos()){ //SERVICIO 2

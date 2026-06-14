@@ -27,7 +27,9 @@ public class Paquete {
     public boolean getContieneAlimentos(){
         return contieneAlimentos;
     }
-    public int getUrgencia(){}
+    public int getUrgencia(){
+        return urgencia;
+    }
 
     public String toString(){
         return "Paquete: " + codIdentificador + " peso: " + peso + " contieneAlimentos: " + contieneAlimentos + " urgencia: " + urgencia;
