@@ -15,6 +15,20 @@ public class Paquete {
         this.urgencia = urgencia;
     }
 
+    public int getId(){
+        return id_paquete;
+    }
+    public String getCodIdentificador(){
+        return codIdentificador;
+    }
+    public int getPeso(){
+        return peso;
+    }
+    public boolean getContieneAlimentos(){
+        return contieneAlimentos;
+    }
+    public int getUrgencia(){}
+
     public String toString(){
         return "Paquete: " + codIdentificador + " peso: " + peso + " contieneAlimentos: " + contieneAlimentos + " urgencia: " + urgencia;
     }
