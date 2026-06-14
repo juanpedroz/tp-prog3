@@ -19,3 +19,4 @@ public class Paquete {
         return "Paquete: " + codIdentificador + " peso: " + peso + " contieneAlimentos: " + contieneAlimentos + " urgencia: " + urgencia;
     }
 }
+
