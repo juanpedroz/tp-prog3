@@ -36,15 +36,15 @@ public class Servicios {
          */
         for (Paquete p : paquetes) {
 
-            this.paquetesXcodigo.put(p.getCodIdentificador(),p); //SERVICIO 1
+            this.paquetesXcodigo.put(p.getCodIdentificador(),p); // Carga estructura SERVICIO 1
 
-            if(p.getContieneAlimentos()){ //SERVICIO 2
+            if(p.getContieneAlimentos()){ // Carga estructuras SERVICIO 2
                 this.paquetesConAlimentos.add(p);
             } else {
                 this.paquetesSinAlimentos.add(p);
             }
 
-            if (this.paquetesXUrgencia.containsKey(p.getUrgencia())) { //SERVICIO 3
+            if (this.paquetesXUrgencia.containsKey(p.getUrgencia())) { // Carga estructura SERVICIO 3
                 List<Paquete> listaPaquetes = paquetesXUrgencia.get(p.getUrgencia());
                 listaPaquetes.add(p);
                 this.paquetesXUrgencia.put(p.getUrgencia(),listaPaquetes);
@@ -54,10 +54,7 @@ public class Servicios {
                 this.paquetesXUrgencia.put(p.getUrgencia(),listaPaquetes);
             }
         }
-
-
     }
-
     /*
      * Expresar la complejidad temporal del servicio 1.
      */
