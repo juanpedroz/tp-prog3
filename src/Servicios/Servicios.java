@@ -69,6 +69,7 @@ public class Servicios {
 //    Servicio 2: Dado un booleano que indica si se buscan paquetes que contienen alimentos (true)
 //    o que no contienen alimentos (false), retornar el listado de paquetes correspondiente.
     public List<Paquete> servicio2(boolean contieneAlimentos) { // O(1)
+        // Deberia devolver una copia de la lista, no la lista original
         if(contieneAlimentos){
             return paquetesConAlimentos;
         }
