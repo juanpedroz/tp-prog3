@@ -13,6 +13,22 @@ public class Camion {
         this.refrigerado = refrigerado;
     }
 
+    public int getId() {
+        return id_camion;
+    }
+
+    public String getPatente() {
+        return patente;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public boolean isRefrigerado() {
+        return refrigerado;
+    }
+
     public String toString(){
         return "Camion: " + patente + " capacidad: " + capacidad + " refrigerado: " + refrigerado;
     }
