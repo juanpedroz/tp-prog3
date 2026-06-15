@@ -20,9 +20,10 @@ public class Servicios {
     private Hashtable<Integer, List<Paquete>> paquetesXUrgencia;
 
     /*
-     * Expresar la complejidad temporal del constructor.
+     * Complejidad temporal: O(C + P) donde C es la cantidad de camiones y P la cantidad de paquetes.
+     * La lectura de cada archivo es O(C) y O(P) respectivamente.
+     * El bucle de inicialización de estructuras recorre los P paquetes haciendo operaciones O(1) en cada iteración.
      */
-
     public Servicios(String pathCamiones, String pathPaquetes) {
         this.camiones = CSVReader.cargarCamiones(pathCamiones);
         this.paquetes = CSVReader.cargarPaquetes(pathPaquetes);
@@ -30,10 +31,6 @@ public class Servicios {
         this.paquetesConAlimentos = new ArrayList<>();
         this.paquetesSinAlimentos = new ArrayList<>();
         this.paquetesXUrgencia = new Hashtable<>();
-        /*
-         * no me queda claro si está bien que el constructor tenga todo esto,
-         * pero no se estarían generando todas las estructuras al instanciar el servicio.
-         */
         for (Paquete p : paquetes) {
 
             this.paquetesXcodigo.put(p.getCodIdentificador(),p); // Carga estructura SERVICIO 1
@@ -56,30 +53,27 @@ public class Servicios {
         }
     }
     /*
-     * Expresar la complejidad temporal del servicio 1.
+     * Complejidad temporal: O(1) promedio. Se accede directamente al paquete mediante su código en la Hashtable.
      */
-    //    Servicio 1: Dado un código de paquete (String), retornar toda la información del paquete asociado.
-//    En caso de no existir, retornar null.
-    public Paquete servicio1(String codigoPaquete) { // O(1)
+    public Paquete servicio1(String codigoPaquete) {
         return paquetesXcodigo.get(codigoPaquete);
     }
     /*
-     * Expresar la complejidad temporal del servicio 2.
+     * Complejidad temporal: O(k) donde k es la cantidad de paquetes en la lista devuelta,
+     * por la copia defensiva. La selección de la lista correcta es O(1).
      */
-//    Servicio 2: Dado un booleano que indica si se buscan paquetes que contienen alimentos (true)
-//    o que no contienen alimentos (false), retornar el listado de paquetes correspondiente.
-    public List<Paquete> servicio2(boolean contieneAlimentos) { // O(1)
+    public List<Paquete> servicio2(boolean contieneAlimentos) {
         if(contieneAlimentos){
             return new ArrayList<>(paquetesConAlimentos);
         }
         return new ArrayList<>(paquetesSinAlimentos);
     }
     /*
-     * Expresar la complejidad temporal del servicio 3.
+     * Complejidad temporal: O(R + k) donde R = urgenciaMaxima - urgenciaMinima + 1 es el tamaño del rango
+     * y k es la cantidad de paquetes en el resultado. R está acotado por 100 (rango válido 1-100),
+     * por lo que en la práctica es O(k).
      */
-//    Servicio 3: Dados dos valores enteros que representan un nivel de urgencia mínimo y máximo,
-//    retornar todos los paquetes cuyo nivel de urgencia se encuentre dentro de ese rango (inclusive).
-    public List<Paquete> servicio3(int urgenciaMinima, int urgenciaMaxima) { // O(n) donde n es la diferencia entre urgenciaMaxima y urgenciaMinima
+    public List<Paquete> servicio3(int urgenciaMinima, int urgenciaMaxima) {
         List<Paquete> listaPaquetes = new ArrayList<>();
         for (int i = urgenciaMinima; i <= urgenciaMaxima; i++) {
             if(paquetesXUrgencia.containsKey(i)){
