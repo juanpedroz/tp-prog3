@@ -19,8 +19,6 @@ public class CSVReader {
             String linea;
             cantCamiones = Integer.parseInt(br.readLine());
 
-            //br.readLine();
-            int cont = 0;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split(";");
 

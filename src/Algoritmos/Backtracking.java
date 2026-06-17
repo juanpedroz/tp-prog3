@@ -27,6 +27,9 @@ public class Backtracking {
         this.mejorPesoNoAsignado = calcularPesoTotal();
         this.mejoresNoAsignados = new ArrayList<>(paquetes);
         this.mejorAsignacion = new HashMap<>();
+        for (Camion c : camiones) {
+            this.mejorAsignacion.put(c, new ArrayList<>());
+        }
 
         int[] capacidadRestante = new int[camiones.size()];
         for (int i = 0; i < camiones.size(); i++) {

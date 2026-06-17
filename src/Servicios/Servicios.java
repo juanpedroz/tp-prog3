@@ -11,7 +11,6 @@ import java.util.Map;
 
 public class Servicios {
 
-    //Completar con las estructuras y métodos privados que se requieran.
     private List<Paquete> paquetes;
     private List<Camion> camiones;
     private Map<String, Paquete> paquetesXcodigo;
