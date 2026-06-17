@@ -39,7 +39,7 @@ public class Solucion {
 
     @Override
     public String toString() {
-        String resultado = "Solución obtenida:\n";
+        String resultado = "Solucion obtenida:\n";
         for (Camion c : asignaciones.keySet()) {
             resultado += "  " + c.getPatente() + ": " + asignaciones.get(c) + "\n";
         }
