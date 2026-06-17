@@ -52,6 +52,14 @@ public class Servicios {
             }
         }
     }
+    public List<Camion> getCamiones() {
+        return new ArrayList<>(camiones);
+    }
+
+    public List<Paquete> getPaquetes() {
+        return new ArrayList<>(paquetes);
+    }
+
     /*
      * Complejidad temporal: O(1) promedio. Se accede directamente al paquete mediante su código en la Hashtable.
      */
