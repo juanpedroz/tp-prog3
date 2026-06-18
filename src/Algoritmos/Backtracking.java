@@ -49,16 +49,15 @@ public class Backtracking {
     private void bt(int indice, int[] capacidadRestante, Map<Camion, List<Paquete>> asignacionActual, List<Paquete> noAsignadosActual, int pesoNoAsignadoActual) {
         estadosGenerados++;
 
-        // PODA: el peso ya no asignado es >= al mejor conocido → ninguna rama puede mejorar
-        // if (pesoNoAsignadoActual >= mejorPesoNoAsignado) {
-        //     return;
-        // }
+            // chequeo esto antes de preguntar si es solucion y no dentro asi corto cuando ya supera el peso no asignado (poda)
+         if (pesoNoAsignadoActual >= mejorPesoNoAsignado) {
+             return;
+
+         }
 
         if (indice == paquetes.size()) {
-            if (pesoNoAsignadoActual < mejorPesoNoAsignado) {
-                mejorPesoNoAsignado = pesoNoAsignadoActual;
-                guardarMejorSolucion(asignacionActual, noAsignadosActual);
-            }
+            mejorPesoNoAsignado = pesoNoAsignadoActual;
+            guardarMejorSolucion(asignacionActual, noAsignadosActual);
             return;
         }
 
