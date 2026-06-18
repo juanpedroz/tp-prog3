@@ -76,7 +76,7 @@ public class Backtracking {
             }
         }
 
-        // probar dejar el paquete sin asignar
+        // deja el paquete sin asignar
         noAsignadosActual.add(paquete);
         bt(indice + 1, capacidadRestante, asignacionActual, noAsignadosActual, pesoNoAsignadoActual + paquete.getPeso());
         noAsignadosActual.remove(noAsignadosActual.size() - 1);
