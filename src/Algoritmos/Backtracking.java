@@ -23,7 +23,7 @@ public class Backtracking {
     public Solucion resolver(List<Camion> camiones, List<Paquete> paquetes) {
         this.camiones = camiones;
         this.paquetes = paquetes;
-        this.estadosGenerados = 0;
+        this.estadosGenerados = 0; // Contador de estados generados
         this.mejorPesoNoAsignado = calcularPesoTotal();
         this.mejoresNoAsignados = new ArrayList<>(paquetes);
         this.mejorAsignacion = new HashMap<>();
